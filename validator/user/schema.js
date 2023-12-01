@@ -10,7 +10,7 @@ const userRegisterSchema = Joi.object({
   fullName: Joi.string().min(6).max(32).required(),
   age: Joi.number().integer().min(1).max(90).required(),
   phoneNumber: Joi.number().min(10).required(),
-  gender: Joi.string().valid("Laki - Laki", "Perempuan").required()
+  gender: Joi.string().valid("male", "female").required()
 }).unknown();
 
 

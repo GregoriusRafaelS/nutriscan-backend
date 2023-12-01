@@ -34,7 +34,7 @@ module.exports = {
         allowNull: false
       },
       gender:{
-        type: Sequelize.ENUM("Laki - Laki", "Perempuan"),
+        type: Sequelize.ENUM("Male", "Female"),
         allowNull: false
       },
       profilePicture:{

@@ -33,7 +33,7 @@ const createModelUser = (Sequelize, DataTypes) => {
         allowNull: false
       },
       gender:{
-        type: DataTypes.ENUM("Laki - Laki", "Perempuan"),
+        type: DataTypes.ENUM("Male", "Female"),
         allowNull: false
       },
       profilePicture:{
