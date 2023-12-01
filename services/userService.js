@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const Sequelize = require("sequelize");
 
-const User = require("../models/user");
+const { User, sequelize } = require("../models");
 // const generateAccessToken = require("../../utils/tokenManager");
 
 const registerUser = async (user) => {
