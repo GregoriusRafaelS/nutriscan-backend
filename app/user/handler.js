@@ -1,6 +1,6 @@
 const {
   validateRegisterUserSchema,
-  // validateLoginUserSchema,
+  validateLoginUserSchema,
 } = require("../../validator/user");
 
 const usersServices = require("../../services/userService");
@@ -48,8 +48,24 @@ const handlerRegisterUser = async (req, res, next) => {
   }
 }
 
-const handlerLoginUser = async () => {
+const handlerLoginUser = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    validateLoginUserSchema(req.body);
 
+    const user = await usersServices.loginUser(email, password);
+
+    res.status(200).json({
+      status: "success",
+      data:{
+        user: {
+          accessToken: user.accessToken,
+        },
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
 }
 
 

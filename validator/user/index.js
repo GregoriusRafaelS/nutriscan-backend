@@ -1,5 +1,6 @@
 const {
   userRegisterSchema,
+  userLoginSchema
 } = require("./schema");
 
 const validateRegisterUserSchema = (payload) => {
@@ -9,6 +10,14 @@ const validateRegisterUserSchema = (payload) => {
   }
 }
 
+const validateLoginUserSchema = (payload) => {
+  const validateResult = userLoginSchema.validate(payload);
+  if(validateResult.error){
+    throw new Error(validateResult.error.message);
+  }
+}
+
 module.exports = {
   validateRegisterUserSchema,
+  validateLoginUserSchema,
 };
