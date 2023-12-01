@@ -15,13 +15,13 @@ const registerUser = async (user) => {
     throw new Error("Email Already exists");
   }
   
-  const fullNameExist = await User.findOne({
+  const usernameExist = await User.findOne({
     where:{
-      fullName: user.fullName
+      username: user.username
     }
   });
   
-  if(fullNameExist){
+  if(usernameExist){
     throw new Error("Full Name Already exists");
   }
 
