@@ -1,0 +1,64 @@
+[
+  {
+    "email":"gert0@123-reg.co.uk",
+    "password":"Ert201",
+    "username":"gert0",
+    "fullName":"Gretta Ert",
+    "phoneNumber":"258-718-3615",
+    "age":"21","gender":"Female"
+  },
+  {
+    "email":"cmacallaster1@artisteer.com",
+    "password":"MacAllaster11",
+    "username":"cmacallaster1",
+    "fullName":"Caresa MacAllaster",
+    "phoneNumber":"768-491-9134",
+    "age":"32",
+    "gender":"Female"
+  },
+  {
+    "email":"lwhile2@umich.edu",
+    "password":"2While1",
+    "username":"lwhile2",
+    "fullName":"Lynne While",
+    "phoneNumber":"462-354-7550",
+    "age":"111",
+    "gender":"Female"
+  },
+  {
+    "email":"kcollingridge3@mit.edu",
+    "password":"32Collingridge",
+    "username":"kcollingridge3",
+    "fullName":"Klarrisa Collingridge",
+    "phoneNumber":"812-132-1622",
+    "age":"20",
+    "gender":"Female"
+  },
+  {
+    "email":"kpoutress4@weibo.com",
+    "password":"2Poutress6",
+    "username":"kpoutress4",
+    "fullName":"Kip Poutress",
+    "phoneNumber":"366-432-9099",
+    "age":"33",
+    "gender":"Female"
+  },
+  {
+    "email":"lrissom5@reuters.com",
+    "password":"Rissom32",
+    "username":"lrissom5",
+    "fullName":"Lilah Rissom",
+    "phoneNumber":"339-407-0517",
+    "age":"18",
+    "gender":"Female"
+  },
+  {
+    "email":"kmerricks6@whitehouse.gov",
+    "password":"Merricks55",
+    "username":"kmerricks6",
+    "fullName":"Karel Merricks",
+    "phoneNumber":"552-259-0630",
+    "age":"55",
+    "gender":"Male"
+  }
+]
