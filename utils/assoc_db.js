@@ -1,13 +1,14 @@
-const my_db = require('./connect_db');
-const user = require('../models/user')
+const { User, Authentications } = sequelize.models;
 
-
-const association = async () => {
-  try {
-    await my_db.sync({force: false});
-  } catch (error) {
-    console.log(error.message);
-  }
+const associationDB = (sequelize) => {
+  User.hasMany(Authentications, {
+    foreignKey: "id_user",
+    sourceKey: 'id',
+  });
+  Authentications.belongsTo(User, {
+    foreignKey: "id_user",
+    targetKey: 'id'
+  });
 }
 
-module.exports = association;
+module.exports = associationDB;
