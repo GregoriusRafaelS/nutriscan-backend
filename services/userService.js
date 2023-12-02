@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const Sequelize = require("sequelize");
-const generateToken = require("../utils/generateToken");
+const { generateAccessToken, generateRefreshToken } = require("../utils/generateToken");
 
 const { User } = require("../models");
 
@@ -61,12 +61,19 @@ const loginUser = async (email, password) => {
     throw error;
   }
 
-  const accessToken = generateToken({
+  const accessToken = generateAccessToken({
     id: currentUser.id,
     email: currentUser.email,
   });
 
-  return {accessToken};
+
+  const refreshToken = generateRefreshToken({
+    id: currentUser.id,
+    email: currentUser.email,
+  })
+
+
+  return {accessToken, refreshToken};
 }
 
 const updateUserProfile = async (data) => {

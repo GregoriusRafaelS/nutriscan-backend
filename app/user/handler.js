@@ -63,6 +63,7 @@ const handlerLoginUser = async (req, res, next) => {
       data:{
         user: {
           accessToken: user.accessToken,
+          refreshToken: user.refreshToken, 
         },
       },
     });
