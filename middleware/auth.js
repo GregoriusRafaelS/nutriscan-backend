@@ -12,20 +12,26 @@ function authenticationToken(req, res, next) {
       next(error)
     };
 
-    const decoded = jwt.verify(token, process.env.TOKEN_SECRET_KEY, { algorithms: ['HS256'] });
+    jwt.verify(token, process.env.TOKEN_SECRET_KEY, { algorithms: ['HS256'] }, function(err, decoded) {
+        if (err) {
+          const error = new Error(err.message);
+          error.statusCode = 401;
+          return next(error)
+        }
 
-    if (!decoded) {
-      const error = new Error("Token is");
-      error.statusCode = 401;
-      next(error)
-    };
+        const user = {
+          id: decoded.id,
+        };
 
-    const user = {
-      id: decoded.id,
-    };
-    req.user = user;
+        req.user = user;
+        next();
+    });
 
-    next();
+    // if (!decodedToken) {
+    //   const error = new Error("Token is");
+    //   error.statusCode = 401;
+    //   next(error)
+    // };
 }
 
 module.exports = authenticationToken;
