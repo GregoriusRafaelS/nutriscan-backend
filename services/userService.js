@@ -69,7 +69,25 @@ const loginUser = async (email, password) => {
   return {accessToken};
 }
 
+const updateUserProfile = async (data) => {
+  // image upload && update ke storage bucket, blm dikasih multer juga 
+
+  const currentUser = await User.findByPk(data.id);
+  
+  if (!currentUser) {
+    const error = new Error("User Not Found");
+    error.statusCode = 401;
+    throw error;
+  }
+  await currentUser.update({
+    username: data.username || currentUser.username,
+    fullName: data.fullName || currentUser.phoneNumber,
+    phoneNumber: data.phoneNumber || currentUser.phoneNumber
+  });
+}
+
 module.exports = {
   registerUser,
   loginUser,
+  updateUserProfile,
 }
