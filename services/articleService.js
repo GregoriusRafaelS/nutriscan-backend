@@ -3,7 +3,7 @@ const generateToken = require("../utils/generateToken");
 
 const { Article } = require("../models");
 
-const postArticle = async (data, id_course, id_chapter) => {
+const postArticle = async (data) => {
   const article = await Article.create({
     title: data.title,
     content: data.content,
