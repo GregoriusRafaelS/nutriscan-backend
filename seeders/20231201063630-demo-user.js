@@ -1,26 +1,28 @@
 'use strict';
 
 const DataUsers = require("../data/users.json");
+const DataAdmin = require("../data/admin");
+
 const bcrypt = require("bcrypt");
 
-const hashedDataUsersPromises  = async () => {
-  const hashedDataUsersPromises = DataUsers.map(async (DataUser) => {
-    DataUser.password = await bcrypt.hash(DataUser.password, 10);
-    DataUser.createdAt = new Date();
-    DataUser.updatedAt = new Date();
-    return DataUser;
+const hashedDataPromises  = async (Datas) => {
+  const hashedDataPromises = Datas.map(async (Data) => {
+    Data.password = await bcrypt.hash(Data.password, 10);
+    Data.createdAt = new Date();
+    Data.updatedAt = new Date();
+    return Data;
   });
 
-  const hashedDataUsers = await Promise.all(hashedDataUsersPromises);
-  return hashedDataUsers;
+  const hashedData = await Promise.all(hashedDataPromises);
+  return hashedData;
 };
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('users', await hashedDataUsersPromises() , {});
+  async up(queryInterface, Sequelize) {
+    return queryInterface.bulkInsert('users', [...await hashedDataPromises(DataAdmin), ...await hashedDataPromises(DataUsers)], {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     return queryInterface.bulkDelete('users', null, {});
   }
 };

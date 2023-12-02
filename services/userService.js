@@ -3,7 +3,6 @@ const Sequelize = require("sequelize");
 const generateToken = require("../utils/generateToken");
 
 const { User } = require("../models");
-// const generateAccessToken = require("../../utils/tokenManager");
 
 const registerUser = async (user) => {
   const emailExist = await User.findOne({
@@ -25,8 +24,8 @@ const registerUser = async (user) => {
   if(usernameExist){
     throw new Error("Full Name Already exists");
   }
-
   const hashedPassword = await bcrypt.hash(user.password, 10);
+  console.log(user.role)
   await User.create({
     email: user.email,
     password: hashedPassword,
@@ -36,6 +35,7 @@ const registerUser = async (user) => {
     phoneNumber: user.phoneNumber,
     age: user.age,
     gender: user.gender,
+    role: user.role
   });
 }
 

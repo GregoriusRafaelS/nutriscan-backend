@@ -6,7 +6,8 @@
     "fullName":"Gretta Ert",
     "phoneNumber":"258-718-3615",
     "age":"21",
-    "gender":"Female"
+    "gender":"Female",
+    "role": "Member"
   },
   {
     "email":"cmacallaster1@artisteer.com",
@@ -15,7 +16,8 @@
     "fullName":"Caresa MacAllaster",
     "phoneNumber":"768-491-9134",
     "age":"32",
-    "gender":"Female"
+    "gender":"Female",
+    "role": "Member"
   },
   {
     "email":"lwhile2@umich.edu",
@@ -24,7 +26,8 @@
     "fullName":"Lynne While",
     "phoneNumber":"462-354-7550",
     "age":"111",
-    "gender":"Female"
+    "gender":"Female",
+    "role": "Member"
   },
   {
     "email":"kcollingridge3@mit.edu",
@@ -33,7 +36,8 @@
     "fullName":"Klarrisa Collingridge",
     "phoneNumber":"812-132-1622",
     "age":"20",
-    "gender":"Female"
+    "gender":"Female",
+    "role": "Member"
   },
   {
     "email":"kpoutress4@weibo.com",
@@ -42,7 +46,8 @@
     "fullName":"Kip Poutress",
     "phoneNumber":"366-432-9099",
     "age":"33",
-    "gender":"Female"
+    "gender":"Female",
+    "role": "Member"
   },
   {
     "email":"lrissom5@reuters.com",
@@ -51,7 +56,8 @@
     "fullName":"Lilah Rissom",
     "phoneNumber":"339-407-0517",
     "age":"18",
-    "gender":"Female"
+    "gender":"Female",
+    "role": "Member"
   },
   {
     "email":"kmerricks6@whitehouse.gov",
@@ -60,6 +66,7 @@
     "fullName":"Karel Merricks",
     "phoneNumber":"552-259-0630",
     "age":"55",
-    "gender":"Male"
+    "gender":"Male",
+    "role": "Member"
   }
 ]
