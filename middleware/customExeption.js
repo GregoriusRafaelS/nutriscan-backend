@@ -1,5 +1,5 @@
 function customExeption(error, req, res, next) {
-  res.status(error.statusCode).json({
+  res.status(error.statusCode || 500).json({
     status: "error",
     message: error.message,
   });
