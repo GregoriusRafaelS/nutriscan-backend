@@ -40,6 +40,10 @@ const createModelUser = (Sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: true
       },
+      role:{
+        type: DataTypes.ENUM("Customer", "Admin"),
+        allowNull: false
+      },
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,

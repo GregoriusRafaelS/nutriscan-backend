@@ -38,7 +38,8 @@ const handlerRegisterUser = async (req, res, next) => {
       fullName, 
       phoneNumber, 
       age, 
-      gender 
+      gender,
+      role: "Customer"
     })
 
     res.status(201).json({
