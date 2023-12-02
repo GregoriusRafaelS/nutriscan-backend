@@ -1,5 +1,5 @@
 const express = require('express');
-const { handlerRegisterUser, handlerLoginUser, handlerUpdateUserProfile } = require("./handler");
+const { handlerRegisterUser, handlerLoginUser, handlerUpdateUserProfile, handlerTokenRefresh } = require("./handler");
 const auth = require("../../middleware/auth");
 
 const router = express.Router();
@@ -10,8 +10,10 @@ router.post("/register", handlerRegisterUser);
 // API Login user: GET users/login
 router.get("/login", handlerLoginUser);
 
-// API UPDATE user: PUUT users/update/:id
+// API UPDATE user: PUT users/update/:id
 router.put("/update", auth ,handlerUpdateUserProfile);
 
+// API REFRESH TOKEN: POST users/refreshToken
+router.post("/refreshToken", handlerTokenRefresh);
 
 module.exports = router;

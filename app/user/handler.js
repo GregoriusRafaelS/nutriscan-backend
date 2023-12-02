@@ -94,8 +94,37 @@ const handlerUpdateUserProfile = async (req, res, next) => {
   }
 }
 
+const handlerTokenRefresh = async (req, res, next) => {
+  const { refreshToken } = req.body
+
+  if (!refreshToken) {
+      res.status(401).json({
+          status: "error", 
+          message: "Refresh Token is Empty"
+      })
+  }
+
+  const accessToken = await usersServices.refreshToken(refreshToken);
+
+  if (!accessToken) {
+    res.status(403).json({
+      status: "error",
+      message: "Invalid Refresh Token",
+    });
+  } else {
+    res.status(200).json({
+      status: "success",
+      message: "Successfully Refresh Access Token",
+      data: {
+        accessToken,
+      },
+    });
+  }
+}
+
 module.exports = {
   handlerRegisterUser,
   handlerLoginUser,
   handlerUpdateUserProfile,
+  handlerTokenRefresh,
 }
