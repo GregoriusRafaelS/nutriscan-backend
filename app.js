@@ -6,6 +6,7 @@ const logger = require("morgan");
 const cors = require('cors')
 
 const userRouter = require('./app/user/route');
+const articleRouter = require('./app/article/route');
 const customErrorHandler = require("./middleware/customExeption");
 const notFoundHandler = require("./middleware/notFoundExeption");
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/users', userRouter);
+app.use('/articles', articleRouter);
 app.use(customErrorHandler);
 app.use(notFoundHandler);
 
