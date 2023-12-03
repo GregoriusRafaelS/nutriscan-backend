@@ -119,9 +119,26 @@ const refreshToken = async (refreshToken) => {
   return accessToken;
 }
 
+const getUser = async (id) => {
+  const currentUser = await User.findByPk(id, {
+    attributes: { 
+      exclude: ["password", "createdAt", "updatedAt"] 
+    },
+  });
+
+  if (!currentUser) {
+    const error =  new Error("User not found");
+    error.statusCode = 401;
+    throw error;
+  }
+
+  return currentUser;
+}
+
 module.exports = {
   registerUser,
   loginUser,
   updateUserProfile,
   refreshToken,
+  getUser
 }
