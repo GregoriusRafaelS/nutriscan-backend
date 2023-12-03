@@ -23,7 +23,7 @@ const handlerGetAllArticlePreview = async (req, res, next) => {
   try {
     const articles = await articlesServices.getAllArticle();
 
-    res.status(201).json({
+    res.status(200).json({
       status: "success",
       message: "Successfully Get All Article",
       data: articles,
