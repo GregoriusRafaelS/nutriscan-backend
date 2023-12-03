@@ -33,7 +33,23 @@ const handlerGetAllArticlePreview = async (req, res, next) => {
   }
 }
 
+const handlerGetArticleContent = async (req, res, next) => {
+  try {
+    const id_article = req.params.id_article;
+    const article = await articlesServices.getArticle(id_article);
+
+    res.status(200).json({
+      status: "success",
+      message: "Successfully Get Article",
+      data: article,
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   handlerPostArticle,
   handlerGetAllArticlePreview,
+  handlerGetArticleContent,
 }
