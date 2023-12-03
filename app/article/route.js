@@ -1,5 +1,5 @@
 const express = require('express');
-const { handlerPostArticle, handlerGetAllArticlePreview } = require("./handler");
+const { handlerPostArticle, handlerGetAllArticlePreview, handlerGetArticleContent } = require("./handler");
 const auth = require("../../middleware/auth");
 const checkAdminRole = require("../../middleware/checkAdminRole");
 
@@ -10,5 +10,8 @@ router.post("/", auth, checkAdminRole, handlerPostArticle);
 
 // API GET All Article: GET articles/
 router.get("/", auth, handlerGetAllArticlePreview);
+
+// API GET Article: GET articles/:id
+router.get("/:id_article", auth, handlerGetArticleContent);
 
 module.exports = router;

@@ -19,7 +19,17 @@ const getAllArticle = async () => {
   return articles;
 }
 
+const getArticle = async (id_article) => {
+  const article = await Article.findAll({
+    where: {
+      id: id_article
+    }
+  })
+  return article;
+}
+
 module.exports = {
   postArticle,
   getAllArticle,
+  getArticle,
 }
