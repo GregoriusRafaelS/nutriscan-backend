@@ -11,7 +11,9 @@ const registerUser = async (user) => {
   });
  
   if(emailExist){
-    throw new Error("Email Already exists");
+    const error = new Error("Email Already exists");
+    error.statusCode = 401;
+    throw error;
   }
   
   const usernameExist = await User.findOne({
@@ -21,7 +23,9 @@ const registerUser = async (user) => {
   });
   
   if(usernameExist){
-    throw new Error("Full Name Already exists");
+    const error = new Error("Username Already exists");
+    error.statusCode = 401;
+    throw error;
   }
   const hashedPassword = await bcrypt.hash(user.password, 10);
 
