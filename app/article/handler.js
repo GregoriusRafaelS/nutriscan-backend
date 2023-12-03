@@ -11,14 +11,29 @@ const handlerPostArticle = async (req, res, next) => {
     const article = await articlesServices.postArticle(req.body);
     res.status(201).json({
       status: "success",
-      message: "Successfully post Article",
+      message: "Successfully Post Article",
       data: article,
     });
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    next(err);
+  }
+}
+
+const handlerGetAllArticlePreview = async (req, res, next) => {
+  try {
+    const articles = await articlesServices.getAllArticle();
+
+    res.status(201).json({
+      status: "success",
+      message: "Successfully Get All Article",
+      data: articles,
+    });
+  } catch (err) {
+    next(err);
   }
 }
 
 module.exports = {
   handlerPostArticle,
+  handlerGetAllArticlePreview,
 }
