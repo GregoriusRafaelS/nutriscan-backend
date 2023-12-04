@@ -1,6 +1,6 @@
 const { validateAddFoodHistorySchema } = require("../../validator/history");
 
-const foodServices = require("../../services/foodHistoryService");
+const foodHistoryServices = require("../../services/foodHistoryService");
 
 const handlerAddFoodHistory = async (req, res, next) => {
   try {
@@ -9,7 +9,7 @@ const handlerAddFoodHistory = async (req, res, next) => {
 
     validateAddFoodHistorySchema(req.body);
     
-    await foodServices.addFoodHistory({id_user, id_food, comments});
+    await foodHistoryServices.addFoodHistory({id_user, id_food, comments});
     
     res.status(200).json({
       status: "success",
@@ -20,6 +20,22 @@ const handlerAddFoodHistory = async (req, res, next) => {
   }
 }
 
+const handlerGetAllFoodHistory = async (req, res, next) => {
+  try {
+    const id_user = req.user.id;
+    const foodHistory = await foodHistoryServices.getAllHistory(id_user);
+
+    res.status(200).json({
+      status: "success",
+      message: "Successfully Get All Article",
+      data: foodHistory,
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   handlerAddFoodHistory,
+  handlerGetAllFoodHistory,
 }
