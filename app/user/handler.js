@@ -75,7 +75,7 @@ const handlerUpdateUserProfile = async (req, res, next) => {
   try {
     const { username, fullName, phoneNumber } = req.body;
     validateUpdateUserSchema(req.body);
-    if(req.file) validateUpdateProfilePictureUserSchema(req.file);
+
     await usersServices.updateUserProfile({
       username,
       fullName,
@@ -83,13 +83,18 @@ const handlerUpdateUserProfile = async (req, res, next) => {
       id: req.user.id,
       // profilePicture: req.file.path || null,
     });
-
+        
     res.status(201).json({
       status: "success",
       message: "Successfully updated User",
     });
   } catch (err) {
     next(err);
+  }
+
+  if (req.file) {
+    validateUpdateProfilePictureUserSchema(req.file);
+    next(); // move to uploadHandler middleware
   }
 }
 
