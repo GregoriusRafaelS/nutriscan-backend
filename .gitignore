@@ -3,3 +3,6 @@ node_modules/
 
 # Secret
 .env
+
+# gcp service accout
+**/credentials.json
