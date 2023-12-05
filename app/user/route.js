@@ -1,5 +1,5 @@
 const express = require('express');
-const { handlerRegisterUser, handlerLoginUser, handlerUpdateUserProfile } = require("./handler");
+const { handlerRegisterUser, handlerLoginUser, handlerUpdateUserProfile, handlerTokenRefresh } = require("./handler");
 const auth = require("../../middleware/auth");
 const multer = require('multer');
 const multerGoogleStorage = require('multer-google-storage');
@@ -27,5 +27,10 @@ const uploadHanlder = multer({
 })
 
 router.put("/update", auth, handlerUpdateUserProfile, uploadHanlder.single('file'));
+// API UPDATE user: PUT users/update/:id
+router.put("/update", auth ,handlerUpdateUserProfile);
+
+// API REFRESH TOKEN: POST users/refreshToken
+router.post("/refreshToken", handlerTokenRefresh);
 
 module.exports = router;

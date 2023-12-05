@@ -12,27 +12,18 @@ function authenticationToken(req, res, next) {
     next(error)
   };
 
-  jwt.verify(token, process.env.TOKEN_SECRET_KEY, { algorithms: ['HS256'] },
-  (error, decoded) => {
-    if (error) {
-      let customError;
-      if (error.name === 'TokenExpiredError') {
-        customError = new Error("Token is expired");
-        customError.statusCode = 401;
-      } else {
-        customError = new Error("Invalid Token");
-        customError.statusCode = 401;
-      }
-      return next(customError);
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET_KEY, { algorithms: ['HS256'] }, function(err, decoded) {
+    if (err) {
+      const error = new Error(err.message);
+      error.statusCode = 401;
+      return next(error)
     }
-
-    req.user = {
+    const user = {
       id: decoded.id,
     };
+    req.user = user;
     next();
-  }
-);
-
+  });
 }
 
 module.exports = authenticationToken;

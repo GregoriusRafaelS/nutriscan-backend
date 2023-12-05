@@ -1,9 +1,9 @@
 const bcrypt = require("bcrypt");
 const generateToken = require("../utils/generateToken");
 
-const { Article } = require("../models");
+const { Article, sequelize } = require("../models");
 
-const postArticle = async (data, id_course, id_chapter) => {
+const postArticle = async (data) => {
   const article = await Article.create({
     title: data.title,
     content: data.content,
@@ -12,6 +12,24 @@ const postArticle = async (data, id_course, id_chapter) => {
   return article;
 }
 
+const getAllArticle = async () => {
+  const articles = await Article.findAll({
+    order: sequelize.col("updatedAt")
+  });
+  return articles;
+}
+
+const getArticle = async (id_article) => {
+  const article = await Article.findAll({
+    where: {
+      id: id_article
+    }
+  })
+  return article;
+}
+
 module.exports = {
   postArticle,
+  getAllArticle,
+  getArticle,
 }

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "name": "nasi goreng",
+    "calories": "100",
+    "protein": "10",
+    "fat": "10",
+    "carbohydrates": "10",
+    "createdAt": "10",
+    "updatedAt": "10"
+  },
+  {
+    "id": "2",
+    "name": "nasi kuning",
+    "calories": "200",
+    "protein": "20",
+    "fat": "20",
+    "carbohydrates": "20",
+    "createdAt": "20",
+    "updatedAt": "20"
+  },
+  {
+    "id": "3",
+    "name": "Bakso",
+    "calories": "300",
+    "protein": "300",
+    "fat": "300",
+    "carbohydrates": "300",
+    "createdAt": "300",
+    "updatedAt": "300"
+  },
+  {
+    "id": "4",
+    "name": "Mie Ayam",
+    "calories": "400",
+    "protein": "400",
+    "fat": "400",
+    "carbohydrates": "400",
+    "createdAt": "400",
+    "updatedAt": "400"
+  },
+  {
+    "id": "5",
+    "name": "Padang Ayam",
+    "calories": "500",
+    "protein": "500",
+    "fat": "500",
+    "carbohydrates": "500",
+    "createdAt": "500",
+    "updatedAt": "500"
+  }
+]
