@@ -26,6 +26,6 @@ const uploadHanlder = multer({
     }
 })
 
-router.put("/update", auth, handlerUpdateUserProfile, uploadHanlder);
+router.put("/update", auth, handlerUpdateUserProfile, uploadHanlder.single('file'));
 
 module.exports = router;
