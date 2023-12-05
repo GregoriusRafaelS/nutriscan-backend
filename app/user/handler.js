@@ -77,6 +77,11 @@ const handlerUpdateUserProfile = async (req, res, next) => {
     const { username, fullName, phoneNumber } = req.body;
     validateUpdateUserSchema(req.body);
 
+    // if (req.validationFileError) {
+    //     const error = new Error(req.validationFileError)
+    //     next(error)
+    // }
+
     await usersServices.updateUserProfile({
       username,
       fullName,
@@ -92,11 +97,17 @@ const handlerUpdateUserProfile = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+}
 
-  if (req.file) {
-    validateUpdateProfilePictureUserSchema(req.file);
-    next(); // move to uploadHandler middleware
-  }
+const handleUploadAvatar = async (req, res, next) => {
+    if (req.fileValidationError) {
+        next(new Error(req.fileValidationError))
+    }
+
+    res.status(201).json({
+        status: "success",
+        message: "Successfully uploaded user avatar",
+    });
 }
 
 const handlerTokenRefresh = async (req, res, next) => {
@@ -127,9 +138,11 @@ const handlerTokenRefresh = async (req, res, next) => {
   }
 }
 
+
 module.exports = {
   handlerRegisterUser,
   handlerLoginUser,
   handlerUpdateUserProfile,
   handlerTokenRefresh,
+  handleUploadAvatar
 }
