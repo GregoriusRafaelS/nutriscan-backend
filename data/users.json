@@ -7,7 +7,7 @@
     "phoneNumber":"258-718-3615",
     "age":"21",
     "gender":"Female",
-    "role": "Member"
+    "role": "Customer"
   },
   {
     "email":"cmacallaster1@artisteer.com",
@@ -17,7 +17,7 @@
     "phoneNumber":"768-491-9134",
     "age":"32",
     "gender":"Female",
-    "role": "Member"
+    "role": "Customer"
   },
   {
     "email":"lwhile2@umich.edu",
@@ -27,7 +27,7 @@
     "phoneNumber":"462-354-7550",
     "age":"111",
     "gender":"Female",
-    "role": "Member"
+    "role": "Customer"
   },
   {
     "email":"kcollingridge3@mit.edu",
@@ -37,7 +37,7 @@
     "phoneNumber":"812-132-1622",
     "age":"20",
     "gender":"Female",
-    "role": "Member"
+    "role": "Customer"
   },
   {
     "email":"kpoutress4@weibo.com",
@@ -47,7 +47,7 @@
     "phoneNumber":"366-432-9099",
     "age":"33",
     "gender":"Female",
-    "role": "Member"
+    "role": "Customer"
   },
   {
     "email":"lrissom5@reuters.com",
@@ -57,7 +57,7 @@
     "phoneNumber":"339-407-0517",
     "age":"18",
     "gender":"Female",
-    "role": "Member"
+    "role": "Customer"
   },
   {
     "email":"kmerricks6@whitehouse.gov",
@@ -67,6 +67,6 @@
     "phoneNumber":"552-259-0630",
     "age":"55",
     "gender":"Male",
-    "role": "Member"
+    "role": "Customer"
   }
 ]
