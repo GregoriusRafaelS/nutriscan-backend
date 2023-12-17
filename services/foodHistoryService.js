@@ -12,10 +12,27 @@ const addFoodHistory = async ({id_user, id_food, comments}) => {
     error.statusCode = 401;
     throw error;
   }
+
+  const currentTime = new Date();
+  let eatingTime = "Pagi";
+  
+  const currentHour = currentTime.getHours();
+
+  if (currentHour >= 4 && currentHour < 11) {
+    eatingTime = "Pagi";
+  } else if (currentHour >= 11 && currentHour < 16) {
+    eatingTime = "Siang";
+  } else if (currentHour >= 16 && currentHour < 18){
+    eatingTime = "Sore";
+  } else {
+    eatingTime = "Malam";
+  }
+
   await FoodHistory.create({
     id_user,
     id_food,
-    comments
+    comments,
+    eatingTime,
   });
 }
 
