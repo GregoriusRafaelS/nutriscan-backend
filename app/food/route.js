@@ -1,10 +1,16 @@
 const express = require('express');
-const { handlerGetFood, } = require("./handler");
+const { handlerGetDetailFoodProp, handlerGetDetailFood, handlerGetAllFood } = require("./handler");
 const auth = require("../../middleware/auth");
 
 const router = express.Router();
 
+// API GET All food: GET foods/
+router.get("/", auth, handlerGetAllFood);
+
 // API GET food: GET foods/
-router.get("/", auth, handlerGetFood);
+router.get("/search", auth, handlerGetDetailFoodProp);
+
+// API GET food: GET foods/
+router.get("/detail", auth, handlerGetDetailFood);
 
 module.exports = router;
