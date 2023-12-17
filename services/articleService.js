@@ -20,7 +20,7 @@ const getAllArticle = async () => {
 }
 
 const getArticle = async (id_article) => {
-  const article = await Article.findAll({
+  const article = await Article.findOne({
     where: {
       id: id_article
     }
