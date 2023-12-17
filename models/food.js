@@ -30,6 +30,10 @@ const createModelFood = (Sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      description:{
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,

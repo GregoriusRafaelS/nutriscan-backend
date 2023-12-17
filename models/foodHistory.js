@@ -33,6 +33,10 @@ const createModelFoodHistory = (Sequelize, DataTypes) => {
       comments: {
         type: DataTypes.TEXT
       },
+      eatingTime: {
+        allowNull: false,
+        type: DataTypes.ENUM("Pagi", "Siang", "Sore", "Malam"),
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE

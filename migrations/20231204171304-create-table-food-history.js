@@ -33,6 +33,10 @@ module.exports = {
       comments: {
         type: Sequelize.TEXT
       },
+      eatingTime: {
+        allowNull: false,
+        type: Sequelize.ENUM("Pagi", "Siang", "Sore", "Malam"),
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
