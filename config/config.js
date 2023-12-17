@@ -22,7 +22,7 @@ module.exports = {
     "database": DB_NAME,
     "dialect": DB_DIALECT,
     dialectOptions: {
-        socketPath: 'nutriscan-capstone:asia-southeast2:nutriscan',
+        socketPath: '/cloudsql/nutriscan-capstone:asia-southeast2:nutriscan',
     }
   }
 }
