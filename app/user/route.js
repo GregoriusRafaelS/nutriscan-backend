@@ -9,7 +9,7 @@ const router = express.Router();
 router.post("/register", handlerRegisterUser);
 
 // API Login user: GET users/login
-router.get("/login", handlerLoginUser);
+router.post("/login", handlerLoginUser);
 
 // API UPDATE user: PUT users/update/:id
 router.put("/update", auth, handlerUpdateUserProfile);
