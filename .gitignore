@@ -6,3 +6,6 @@ node_modules/
 
 # gcp service accout
 **/credentials.json
+
+# sql dump files
+*.sql
