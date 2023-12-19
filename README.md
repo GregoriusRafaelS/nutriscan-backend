@@ -67,7 +67,7 @@ npm run start-dev
 ## API Documentation
 
 ---
-[Postman API Documentation](#https://documenter.getpostman.com/view/29112714/2s9Ykodh31)
+[Postman API Documentation](https://documenter.getpostman.com/view/29112714/2s9Ykodh31)
 
 
 Link ML: https://colab.research.google.com/drive/14GnO43xhJ2q6WsQP0t4y3iE2vDlIYIue?usp=sharing
