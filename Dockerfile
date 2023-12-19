@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["sh", "-c", "npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all && npm run start"]
+CMD ["npm", "start"]
