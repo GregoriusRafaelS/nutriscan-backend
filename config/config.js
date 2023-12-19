@@ -20,7 +20,9 @@ module.exports = {
     "username": DB_USERNAME,
     "password": DB_PASSWORD,
     "database": DB_NAME,
-    "host": DB_HOSTNAME,
-    "dialect": DB_DIALECT
+    "dialect": DB_DIALECT,
+    dialectOptions: {
+        socketPath: '/cloudsql/nutriscan-capstone:asia-southeast2:nutriscan',
+    }
   }
 }
