@@ -34,7 +34,7 @@ const createModelAuthentications = (Sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "Authentications",
+      tableName: "authentications",
     }
   );
   return Authentications;
