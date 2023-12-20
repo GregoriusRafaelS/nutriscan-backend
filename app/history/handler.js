@@ -27,7 +27,7 @@ const handlerGetAllFoodHistory = async (req, res, next) => {
 
     res.status(200).json({
       status: "success",
-      message: "Successfully Get All Article",
+      message: "Successfully Get All Food History",
       data: foodHistory,
     });
   } catch (err) {

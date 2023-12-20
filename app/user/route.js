@@ -8,7 +8,7 @@ const router = express.Router();
 // API Register user: POST users/register
 router.post("/register", handlerRegisterUser);
 
-// API Login user: GET users/login
+// API Login user: POST users/login
 router.post("/login", handlerLoginUser);
 
 // API UPDATE user: PUT users/update/:id
