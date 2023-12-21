@@ -9,7 +9,7 @@ const uploadImage = multer({
       projectId: process.env.GCS_PROJECT, 
       filename: (req, file, cb) => {
           const ext = file.originalname.split('.').pop();
-          cb(null, `${req.body.username}-avatar.${ext}`);
+          cb(null, `${req.user.id}-avatar.${ext}`);
       },
   }),
   
@@ -25,7 +25,7 @@ const uploadImage = multer({
           return cb(null, false, new Error(err.message))
       }
 
-      if (req.body.username === undefined |! req.body.username === null) {
+      if (req.user.id === undefined |! req.user.id === null) {
           req.fileValidationError = "Username field is empty"
           return cb(null, false, new Error("Username filed is empty"))
       }
