@@ -6,7 +6,7 @@ const foodsServices = require("../../services/foodService");
 
 const handlerGetDetailFoodProp = async (req, res, next) =>  {
   try {
-    const { name, probability } = req.body;
+    const { name, probability } = req.query;
 
     validateGetFoodSchema({probability});
 
