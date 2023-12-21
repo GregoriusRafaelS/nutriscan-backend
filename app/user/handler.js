@@ -77,17 +77,11 @@ const handlerUpdateUserProfile = async (req, res, next) => {
     const { username, fullName, phoneNumber } = req.body;
     validateUpdateUserSchema(req.body);
 
-    // if (req.validationFileError) {
-    //     const error = new Error(req.validationFileError)
-    //     next(error)
-    // }
-
     await usersServices.updateUserProfile({
       username,
       fullName,
       phoneNumber,
       id: req.user.id,
-      // profilePicture: req.file.path || null,
     });
         
     res.status(201).json({
@@ -103,6 +97,11 @@ const handleUploadAvatar = async (req, res, next) => {
     if (req.fileValidationError) {
         next(new Error(req.fileValidationError))
     }
+
+    await usersServices.updateUserAvatar({
+      id: req.user.id,
+      profilePicture: req.file.path || null,
+    });
 
     res.status(201).json({
         status: "success",
@@ -142,11 +141,27 @@ const handlerTokenRefresh = async (req, res, next) => {
   }
 }
 
+const handlerGetProfile = async (req, res, next) => {
+  try {
+
+    const user = await usersServices.getDataUser(req.user.id);
+
+    res.status(201).json({
+      status: "success",
+      message: "Successfully updated User",
+      data : user
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
 
 module.exports = {
   handlerRegisterUser,
   handlerLoginUser,
   handlerUpdateUserProfile,
   handlerTokenRefresh,
-  handleUploadAvatar
+  handleUploadAvatar,
+  handlerGetProfile
 }

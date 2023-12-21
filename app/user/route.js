@@ -1,5 +1,5 @@
 const express = require('express');
-const { handlerRegisterUser, handlerLoginUser, handlerUpdateUserProfile, handlerTokenRefresh, h, handleUploadAvatar } = require("./handler");
+const { handlerRegisterUser, handlerLoginUser, handlerUpdateUserProfile, handlerTokenRefresh, handleUploadAvatar, handlerGetProfile } = require("./handler");
 const auth = require("../../middleware/auth");
 const uploadImage = require("../../middleware/uploadImage");
 
@@ -19,5 +19,8 @@ router.post('/avatar/upload', auth, uploadImage.single('avatar'), handleUploadAv
 
 // API REFRESH TOKEN: POST users/refreshToken
 router.post("/refreshToken", handlerTokenRefresh);
+
+// API Data profile user GET users/profile
+router.get("/profile", auth, handlerGetProfile);
 
 module.exports = router;

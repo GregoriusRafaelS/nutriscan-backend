@@ -83,7 +83,6 @@ const loginUser = async (email, password) => {
 }
 
 const updateUserProfile = async (data) => {
-  // image upload && update ke storage bucket, blm dikasih multer juga 
 
   const currentUser = await User.findByPk(data.id);
   
@@ -135,10 +134,36 @@ const getUser = async (id) => {
   return currentUser;
 }
 
+const updateUserAvatar = async (data) => {
+  const currentUser = await User.findByPk(data.id);
+  
+  if (!currentUser) {
+    const error = new Error("User Not Found");
+    error.statusCode = 401;
+    throw error;
+  }
+  await currentUser.update({
+    profilePicture: data.profilePicture || currentUser.profilePicture,
+  });
+}
+
+const getDataUser = async (id) => {
+  const currentUser = await User.findByPk(id);
+
+  if (!currentUser) {
+    const error = new Error("User Not Found");
+    error.statusCode = 401;
+    throw error;
+  }
+  return currentUser
+}
+
 module.exports = {
   registerUser,
   loginUser,
   updateUserProfile,
   refreshToken,
-  getUser
+  getUser,
+  updateUserAvatar,
+  getDataUser
 }
